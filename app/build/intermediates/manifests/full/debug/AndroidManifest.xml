@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sinapsedigital.clima_sinapse"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light" >
+        <activity
+            android:name="com.sinapsedigital.clima_sinapse.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme="geo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sinapsedigital.clima_sinapse.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName="com.sinapsedigital.clima_sinapse.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sinapsedigital.clima_sinapse.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.sinapsedigital.clima_sinapse.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sinapsedigital.clima_sinapse.MainActivity" />
+        </activity>
+
+        <provider
+            android:name="com.sinapsedigital.clima_sinapse.data.WeatherProvider"
+            android:authorities="com.sinapsedigital.clima_sinapse" >
+        </provider>
+    </application>
+
+</manifest>
